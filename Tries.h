@@ -69,6 +69,41 @@ public:
 
         return (curr->wordEnd);
     }
+
+    void display(){
+        int level = 0;
+        char str[20];
+
+        // Displaying content of Trie
+        cout << "Content of Trie: " << endl;
+        display(root, str, level);
+    }
+
+    void display(node* root, char str[], int level)
+    {
+        // If node is leaf node, it indicates end
+        // of string, so a null character is added
+        // and string is displayed
+        if (root->wordEnd)
+        {
+            str[level] = '\0';
+            cout << str << endl;
+        }
+
+        int i;
+        for (i = 0; i < ALPHABET_SIZE; i++)
+        {
+            // if NON NULL child is found
+            // add parent key to str and
+            // call the display function recursively
+            // for child node
+            if (root->children[i])
+            {
+                str[level] = i + 'a';
+                display(root->children[i], str, level + 1);
+            }
+        }
+    }
 };
 
 

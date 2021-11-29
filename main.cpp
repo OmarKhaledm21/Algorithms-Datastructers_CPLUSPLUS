@@ -11,8 +11,8 @@ int main()
     tries.insert("answer");
     tries.insert("any");
     tries.insert("bye");
-    cout<<tries.search("any");
-	
+    cout<<tries.search("any")<<endl;
+	tries.display();
 
 	return 0;
 }
